@@ -1,0 +1,63 @@
+import java.util.Scanner;
+/*
+Author: Gabe Ellicott
+Date: 1/24/2022
+
+This program prompts a user to enter customer id, unit price in this format (e.g. 3.75), quantity (as whole
+number), product description, and discount in this format (e.g., .10).
+Calculates the customer's overall order total before and after discount.
+Displays the input data along with the order total before and after the discount to the console.
+*/
+
+class Assignment1 {
+    public static void main(String[] args) {
+
+        //Prompts user to enter Customer information
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("Please enter User ID: ");
+
+
+        //User ID Variable
+        String userID = userInput.nextLine();
+        //System.out.println(userID);
+
+
+        //Product description Variable
+        System.out.print("Please enter a short description: ");
+        String productDescription = userInput.nextLine();
+
+
+        //Unit Price Variable
+        System.out.print("Please enter unit price: ");
+        double unitPrice = userInput.nextDouble();
+
+
+        //Quantity Variable
+        System.out.print("Please enter the quantity: ");
+        int quantity = userInput.nextInt();
+
+
+        //Discount Variable
+        System.out.print("Please enter discount rate (ex. .10 for 10 percent): ");
+        double discount = userInput.nextDouble();
+
+
+        //Calculate total before and after discount
+        double total = unitPrice * quantity;
+        double discountedTotal = total - (total * discount);
+
+
+        //Print out inputs
+        System.out.println("Customer Receipt\nID: " + userID);
+        System.out.println("Description: " + productDescription);
+        System.out.println("Price: " + unitPrice);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Discount Rate Applied: " + discount);
+
+
+        //print out total and discounted total
+        System.out.println("Total Price: " + total);
+        System.out.print("Discounted Price: " + discountedTotal);
+    }
+}
+
