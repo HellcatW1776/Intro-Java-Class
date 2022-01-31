@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Assignment2 {
+	public static void main(String[] args) {
+
+		/*Prompts a user to enter two numbers between 200 and 1000 and a symbol for operation
+such as ‘+’, ‘-‘, ‘*’,and ‘/’ (use Scanner for input).
+Code uses nested if statement or switch to perform the operation on the two numbers
+If the provided symbol is valid, displays the input data along with the result of the calculation
+to the console. Otherwise displays an error message
+*/
+	//Get user input
+	Scanner userInput = new Scanner(System.in);
+	System.out.print("Enter two numbers between 200 and 1000(separate the numbers with a space): ");
+	int number1 = userInput.nextInt();
+	int number2 = userInput.nextInt();
+
+	
+	//Get user operator
+	System.out.print("Please enter the mathmatical operator(+, -, *, /): ");
+	String userOperator = userInput.next();
+
+
+	//Verify operator
+	switch (userOperator) {
+  		case "+":
+    		System.out.println( "The sum of your numbers are: " + (number1 + number2));
+    		break;
+		case "-":
+		    System.out.println("The difference of your numbers are: " + (number1 - number2));
+		    break;
+		case "*":
+		    System.out.println("The product of your numbers are: " + (number1 * number2));
+		    break;
+		case "/":
+		    System.out.println("The quotient of your numbers are: " + (number1 / number2));
+		    break;
+		default:
+			System.out.println("This is not a valid operator, Exiting program!!");
+			break;
+		}
+	}
+}
+
+//Extra notes
+
+	// //Get user operator    
+	// String addition = "+";
+	// String subtraction = "-";
+	// String multiplication = "*";
+	// String division = "/";
+
+	// //verify valid operator
+	// if (userOperator.equals(addition)) {
+	// 	System.out.print(number1 + number2);
+
+	//     }   else if (userOperator.equals(subtraction)) {
+	// 	System.out.print(number1 - number2);
+
+	//     }	else if (userOperator.equals(multiplication)) {
+	// 	System.out.print(number1 * number2);
+	//     }
+	// 	else if (userOperator.equals(division)) {
+	// 	System.out.print(number1 / number2);
+	//     }
