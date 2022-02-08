@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+/*
+Author: Gabe Ellicott 
+
+This program will read user’s input for the gamer's
+name, lvl XP, and engagement score.  The total XP score with bonuses will be
+calculated. The Output will be Gamer information with the total calculated XP
+score(including bonuses). User will be able to calculate total XP for another
+gamer and repeat the input/output processing if desired. User to exit the program
+without inputting gamer's data if desired.
+*/
+  
+class XtremeGamer {
+    public static void main(String[] argv) {
+
+        //Ask for initial user input
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Would you like to enter Gamer's data? y/N");
+        String enterGamersData = userInput.next();
+            
+        //Start initial loop
+        do {
+
+        //Verify initial user input
+        switch (enterGamersData) {
+
+            case "y":  
+        
+                //Get GamerTag and level scores
+                System.out.println("Enter Gamer Tag: ");
+                String gamerTag = userInput.next();
+                System.out.println("Enter Gamer's individual level XP points : L1 L2 L3 ES");
+                int levelOneScore = userInput.nextInt();
+                int levelTwoScore = userInput.nextInt();
+                int levelThreeScore = userInput.nextInt();
+                int engagementScore = userInput.nextInt();
+
+                //Calculate score
+                double score = (levelOneScore + levelOneScore *0.20)+ (levelTwoScore+levelTwoScore*0.30)+ (levelThreeScore+levelThreeScore*0.50)+ (engagementScore+engagementScore*0.60);
+                
+                //Verify XP scores are in valid range
+                int check1 = levelOneScore % 5;
+                int check2 = levelTwoScore % 5;
+                int check3 = levelThreeScore % 5;
+
+                if (levelOneScore < 10 || levelOneScore > 101 || check1 != 0) {
+                    System.out.println("Your level one score is not in a valid range: valid range is 10-100 and must be in increments of 5");
+                    break;
+                    }
+
+                else if (levelTwoScore < 10 || levelTwoScore > 101 || check2 != 0) {
+                    System.out.println("Your level Two score is not in a valid range: valid range is 10-100 and must be in increments of 5");
+                    break;
+                    }
+
+                else if (levelThreeScore < 10 || levelThreeScore > 101 || check3 != 0) {
+                    System.out.println("Your level Three score is not in a valid range: valid range is 10-100 and must be in increments of 5");
+                    break;
+                    }
+
+                else {
+                    //Print out gamertag and score
+                    System.out.println("Gamer: " + gamerTag + " has a total Score of: " + score);
+
+                //Allow user to exit or continue
+                System.out.println("\nWould you like to enter another gamers info? \"y/N\"");
+                enterGamersData = userInput.next();
+                break;
+                }
+
+            //In the case they don't want to enter
+            case "N":
+
+                System.out.println("Thanks for stopping by!");
+                break;
+
+            //Incase they input the wrong thing
+            default:
+                System.out.println("Please enter a valid option: \"y/N\"");
+                enterGamersData = userInput.next();
+            }
+        }
+        //Exit initial loop
+        while(enterGamersData.equals("y"));
+    }
+}
