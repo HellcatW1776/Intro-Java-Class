@@ -1,3 +1,4 @@
 **Class projects will be posted here**
-Calc-ish is a BASIC calculator
-
+<br />Calc-ish is a BASIC calculator
+<br />
+<br />
