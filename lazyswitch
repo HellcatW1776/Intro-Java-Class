@@ -1,0 +1,127 @@
+import java.util.*;
+
+
+/*
+Author HellcatW1776
+This program will convert cubic ft. to bushels, miles to km, and determine graduation with honors status.
+*/
+
+class Assignment5 {
+
+    public static void main(String [] argv) {
+    try {
+        //Initial entry     
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Main Menu");
+        System.out.println("1: Convert feet to U.S. bushels");
+        System.out.println("2: Convert miles ot kilometers");
+        System.out.println("3: Graduation title with honors");
+        System.out.println("6: Exit program");
+        System.out.println();
+
+        //loop control
+        System.out.println("Please enter your selection: ");
+        int userSelection = userInput.nextInt();
+
+
+        do {
+                switch (userSelection){
+                    case 1:
+                    FeetToBushel();
+                    break;
+                case 2:
+                    MilesToKilometers();
+                    break;
+                case 3:
+                    GradHonors();
+                    break;
+                case 6:
+                    System.out.println("Exiting program.");
+                }
+                System.out.println("Main Menu");
+                System.out.println("1: Convert feet to U.S. bushels");
+                System.out.println("2: Convert miles ot kilometers");
+                System.out.println("3: Graduation title with honors");
+                System.out.println("6: Exit program");
+                System.out.println();
+                System.out.println("Please enter your selection: ");
+                userSelection = userInput.nextInt();
+                
+            }
+        while (userSelection != 6);
+        System.out.println("Enjoy the rest of your day!");
+        }
+
+    catch (Exception e) { 
+        System.out.println("Invalid input, \n Must exit!");
+        }
+    }   
+
+
+
+    static void FeetToBushel() {
+        // 1 cubic foot = 0.803564 U.S. bushel
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter cubic feet: ");
+        double cubicFeet = userInput.nextDouble();
+        double bushels = cubicFeet * 0.803564;
+        System.out.printf("\t %.2f Cubic ft. = %.2f U.S. Bushels", cubicFeet , bushels);
+        System.out.println();
+        }
+
+
+    static void MilesToKilometers() {
+        //1 mile = 1.60934 km
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter miles: ");
+        double miles = userInput.nextDouble();
+        double kilometers = miles * 1.60934;
+        System.out.printf("\t %.2f miles = %.2f kilometers", miles, kilometers);
+        System.out.println();
+        }
+
+    static void GradHonors() {
+        /*
+            Create a method that uses a switch statement and the
+            following ranges
+                Cum Laude 3.5-3.7
+                Magna Cum Laude 3.8-3.9
+                Summa Cum Laude 4.0+
+        */
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter your GPA: ");
+        String gpa = userInput.next();
+        
+
+        switch (gpa) {
+            case "3.5":
+            case "3.6":
+            case "3.7":
+                System.out.println("\tCongrats you graduated Cum Laude! ");
+                System.out.println("\n");
+                break;
+            case "3.8":
+            case "3.9":
+                System.out.println("\t Awesome job! You graduated Magna Cum Laude");
+                System.out.println("\n");
+                break;
+            case "4.0+":
+            case "4.0":
+            case "4.1":
+            case "4.2":
+            case "4.3":
+            case "4.4":
+            case "4.5":
+            case "4.6":
+            case "4.7":
+            case "4.8":
+            case "4.9":
+                System.out.println("\t Your brain must ache! Congratulations, you have earned Summa Cum Laude.");
+                System.out.println("\n");
+                break;
+            default:
+                System.out.println("Please input a valid GPA: 3.5-4.0+ ");
+                gpa = userInput.next();
+            }
+        }
+}
